@@ -1,0 +1,12 @@
+
+with open('crescente.txt', 'w') as arquivo:
+
+    for numero in range(1, 101):
+        arquivo.write(str(numero))
+       
+        if numero != 100:
+            arquivo.write(';')
+
+print("Arquivo 'crescente.txt' foi criado com sucesso.")
+
+
