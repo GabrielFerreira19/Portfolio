@@ -1,0 +1,70 @@
+import os
+
+# Função para cadastrar um novo aluno
+def cadastrar_aluno():
+    nome = input("Nome do aluno: ")
+    email = input("Email do aluno: ")
+    curso = input("Curso do aluno: ")
+
+    aluno = f"Nome: {nome}, Email: {email}, Curso: {curso}\n"
+
+    with open("alunos.txt", "a") as arquivo:
+        arquivo.write(aluno)
+
+    print("Aluno cadastrado com sucesso!")
+
+# Função para listar todos os alunos cadastrados
+def listar_alunos():
+    if os.path.exists("alunos.txt"):
+        with open("alunos.txt", "r") as arquivo:
+            alunos = arquivo.readlines()
+            if alunos:
+                for aluno in alunos:
+                    print(aluno)
+            else:
+                print("Nenhum aluno cadastrado.")
+    else:
+        print("Nenhum aluno cadastrado.")
+
+# Função para buscar um aluno pelo nome
+def buscar_aluno_por_nome():
+    nome_busca = input("Digite o nome do aluno que deseja buscar: ")
+
+    if os.path.exists("alunos.txt"):
+        with open("alunos.txt", "r") as arquivo:
+            alunos = arquivo.readlines()
+            encontrado = False
+            for aluno in alunos:
+                if nome_busca in aluno:
+                    print(aluno)
+                    encontrado = True
+                    break
+            if not encontrado:
+                print("Aluno não encontrado.")
+    else:
+        print("Nenhum aluno cadastrado.")
+
+# Função principal
+def main():
+    while True:
+        print("\nOpções:")
+        print("1 - Cadastrar um novo aluno")
+        print("2 - Listar os alunos cadastrados")
+        print("3 - Buscar um aluno pelo nome")
+        print("4 - Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            cadastrar_aluno()
+        elif opcao == "2":
+            listar_alunos()
+        elif opcao == "3":
+            buscar_aluno_por_nome()
+        elif opcao == "4":
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()
