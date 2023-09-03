@@ -1,6 +1,6 @@
 import os
 
-# Função para cadastrar um novo aluno
+
 def cadastrar_aluno():
     nome = input("Nome do aluno: ")
     email = input("Email do aluno: ")
@@ -13,7 +13,7 @@ def cadastrar_aluno():
 
     print("Aluno cadastrado com sucesso!")
 
-# Função para listar todos os alunos cadastrados
+
 def listar_alunos():
     if os.path.exists("alunos.txt"):
         with open("alunos.txt", "r") as arquivo:
@@ -26,7 +26,7 @@ def listar_alunos():
     else:
         print("Nenhum aluno cadastrado.")
 
-# Função para buscar um aluno pelo nome
+
 def buscar_aluno_por_nome():
     nome_busca = input("Digite o nome do aluno que deseja buscar: ")
 
@@ -44,7 +44,7 @@ def buscar_aluno_por_nome():
     else:
         print("Nenhum aluno cadastrado.")
 
-# Função principal
+
 def main():
     while True:
         print("\nOpções:")
